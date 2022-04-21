@@ -1,12 +1,12 @@
-from comment.pages import pages
-from comment.data import data
-from comment.logger import Logger
+from GetPagesClass import pages
+from GetDataClass import data
+from logger import Logger
 log = Logger()
 
 if __name__ == '__main__':
     login = pages()
     person = data()
-    personlist = person.read_data()
+    personlist = person.read_wgz()
     for i in range(len(personlist)):
         result = login.login(personlist[i],'bgfg1000lbfwlXP#')  # 获取社区账号并登录
         # result = login.login('13734206025','bgfg1000lbfwlXP#')  # 登录

@@ -1,8 +1,8 @@
 from selenium import webdriver
 from comment.code1 import recognize_text
-from comment.PageObject import Page_Object
+from PageObject import Page_Object
 import time
-from comment.logger import Logger
+from logger import Logger
 
 log = Logger()
 
