@@ -8,11 +8,9 @@ log = Logger()
 
 class pages:
     driver = webdriver.Chrome()
-    def login(self,username, password ):
+    driver.get('https://www.pingan.gov.cn:9260/system/login')
 
-        # 跳转到登录页面
-        self.driver.get('https://www.pingan.gov.cn:9260/system/login')
-        # driver.find_element_by_css_selector('.login_btn').click()
+    def login(self,username, password ):
 
         # 获取登录页截图
         PO = Page_Object(self.driver)
@@ -48,8 +46,8 @@ class pages:
             time.sleep(1)
 
 
-        print(time.strftime("%Y-%m-%d %X", time.localtime()))
-        print(self.driver.current_url)
+        log.write(time.strftime("%Y-%m-%d %X", time.localtime())) # 输出当前时间
+        log.write('当前浏览器地址是{}'.format(self.driver.current_url)) # 输出浏览器地址
         return  self.driver.current_url
 
 
@@ -76,7 +74,7 @@ class pages:
                 self.driver.find_element_by_class_name('ui-dialog-autofocus')  # 保存按钮
                 time.sleep(1)  # 等待跳转回列表
         else:
-            print("当前账号无待办事件")
+            log.write("当前账号无待办事件")
 
 
 
